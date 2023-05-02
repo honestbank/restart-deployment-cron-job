@@ -1,0 +1,5 @@
+apiVersion: v2
+name: restart-deployment
+description: A Helm chart to restart deployment by deploying a Cron job in the same Namespace as deployment
+type: application
+version: 0.1.0

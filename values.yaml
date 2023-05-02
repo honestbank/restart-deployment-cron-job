@@ -1,0 +1,8 @@
+# Namespace to deploy the helm chart
+namespace: sunil-restart
+
+# Name of deployment to restart
+deploymentNameToRestart: nginx-deployment
+
+# Cron schedule for restarting the deployment
+cronSchedule: '*/5 * * * *'
