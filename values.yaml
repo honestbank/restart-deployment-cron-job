@@ -1,8 +1,8 @@
 # Namespace to deploy the helm chart
-namespace: sunil-restart
+namespace: honestcard
 
 # Name of deployment to restart
-deploymentNameToRestart: nginx-deployment
+deploymentNameToRestart: cms-card-repayment-ingestion
 
 # Cron schedule for restarting the deployment
-cronSchedule: '*/5 * * * *'
+cronSchedule: '0 * * * *'
