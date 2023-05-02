@@ -5,7 +5,7 @@ metadata:
   namespace: {{ .Values.namespace }}
 spec:
   concurrencyPolicy: Forbid
-  schedule: '*/5 * * * *' # cron spec of time, here, 8 o'clock
+  schedule: {{ .Values.cronSchedule }}
   jobTemplate:
     spec:
       backoffLimit: 2 
