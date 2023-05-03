@@ -5,4 +5,8 @@ namespace: honestcard
 deploymentNameToRestart: cms-card-repayment-ingestion
 
 # Cron schedule for restarting the deployment
-cronSchedule: '0 * * * *'
+cronSchedule: '*/30 * * * *'
+
+# Annotations to add to cron job pod template
+annotations:
+  sidecar.istio.io/inject: 'false'

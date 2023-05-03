@@ -1,17 +1,20 @@
-apiVersion: batch/v1beta1
+apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: deployment-restart
   namespace: {{ .Values.namespace }}
 spec:
   concurrencyPolicy: Forbid
-  schedule: {{ .Values.cronSchedule }}
+  schedule: {{ .Values.cronSchedule | quote }}
   jobTemplate:
     spec:
       backoffLimit: 2 
       activeDeadlineSeconds: 600 # timeout, makes most sense with 
                                  # "waiting for rollout" variant specified below
       template:
+        metadata:
+          annotations:
+          {{- toYaml .Values.annotations | nindent 12 }}     
         spec:
           serviceAccountName: deployment-restart 
           restartPolicy: Never
