@@ -18,6 +18,8 @@ spec:
         spec:
           serviceAccountName: deployment-restart 
           restartPolicy: Never
+          securityContext:
+            {{- toYaml .Values.podSecurityContext | nindent 12 }}
           containers:
             - name: kubectl
               image: bitnami/kubectl 
